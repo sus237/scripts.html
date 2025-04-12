@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scripts</title>
+  <title>Copy Button</title>
   <style>
     html, body {
       margin: 0;
@@ -68,12 +68,12 @@
 </head>
 <body>
 
-  <button onclick="copyText()">Washiez.lol (made by npc)</button>
+  <button onclick="copyText()">Copy Something</button>
   <div id="toast" class="toast">📋 Copied to clipboard</div>
 
   <script>
     function copyText() {
-      navigator.clipboard.writeText("loadstring(game:HttpGet('https://washiez.lol/script.lua'))()");
+      navigator.clipboard.writeText("You copied this ✨");
       const toast = document.getElementById('toast');
       toast.classList.add('show');
       setTimeout(() => {
@@ -84,4 +84,3 @@
 
 </body>
 </html>
-
