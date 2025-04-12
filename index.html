@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scripts</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #1e1e2f, #3c1c70, #0e3c57, #1f2b4d);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button {
+      padding: 1.2rem 2.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #ffffff33;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="copyText()">Washiez.lol (made by npc)</button>
+  <div id="toast" class="toast">📋 Copied to clipboard</div>
+
+  <script>
+    function copyText() {
+      navigator.clipboard.writeText("loadstring(game:HttpGet('https://washiez.lol/script.lua'))()");
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
 
