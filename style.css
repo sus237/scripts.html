@@ -1,12 +1,14 @@
 html, body {
   margin: 0;
+  padding: 0;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   background: linear-gradient(-45deg, #1e1e2f, #3c1c70, #0e3c57, #1f2b4d);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
+  color: #fff;
+  font-family: sans-serif;
 }
 
 @keyframes gradientShift {
@@ -15,14 +17,73 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rainbow-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, violet, indigo, blue, cyan, green, yellow, orange, red, violet, indigo, blue, cyan, green, yellow, orange);
+  background-size: 3200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowFlow 15s linear infinite;
+}
+
+@keyframes rainbowFlow {
+  0% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+.script-box, .script-box2, .script-box3 {
+  position: absolute;
+  top: -20px;
+  border: 2px solid red;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+  max-width: 300px;
+  background-image: linear-gradient(90deg, violet, indigo, blue, cyan, green, yellow, orange, red, violet, indigo, blue, cyan, green, yellow, orange);
+  background-size: 3200% 100%;
+  animation: rainbowFlow 15s linear infinite;
+}
+
+.script-box { left: 40px; }
+.script-box2 { left: 500px; }
+.script-box3 { left: 1000px; }
+
+.script-box p, .script-box2 p, .script-box3 p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 button {
-  padding: 1.2rem 2.5rem;
-  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: #000;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid #ffffff33;
-  border-radius: 16px;
+  border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -40,7 +101,7 @@ button:active {
 
 .toast {
   position: fixed;
-  bottom: 30px;
+  bottom: 80px;
   right: 30px;
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
@@ -57,4 +118,37 @@ button:active {
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.tab:active {
+  transform: scale(0.95);
+}
+
+.box-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
 }
