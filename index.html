@@ -2,14 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copy Button</title>
+  <title>Scripts</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <button onclick="copyText()">Copy Something</button>
+  <div id="homeTab" class="content active">
+    <h1>Welcome to Scripts</h1>
+    <p class="rainbow-text">Best free scripts on the market</p>
+  </div>
+
+  <div id="scriptsTab" class="content">
+    <div class="box-container">
+      <div class="script-box">
+        <button onclick="copyText()">washiez.lol (made by npc)</button>
+        <p>Washiez.lol is a script made by npc and it is VERY good.</p>
+      </div>
+
+      <div class="script-box2">
+        <button onclick="copyLancetText()">Lancet v3</button>
+        <p>Lancet is a script made by sus (me), mye, and rosploiter. It is a fling bypass meant for washiez.</p>
+      </div>
+
+      <div class="script-box3">
+        <button onclick="copyInfiniteYieldText()">Infinite yield</button>
+        <p>Infinite yield is a famous universal script</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="creditsTab" class="content">
+    <h2>Made by sus</h2>
+  </div>
+
   <div id="toast" class="toast">📋 Copied to clipboard</div>
+
+  <div class="tabs">
+    <div class="tab" onclick="showTab('homeTab')">Home</div>
+    <div class="tab" onclick="showTab('scriptsTab')">Scripts</div>
+    <div class="tab" onclick="showTab('creditsTab')">Credits</div>
+  </div>
 
   <script src="script.js"></script>
 </body>
